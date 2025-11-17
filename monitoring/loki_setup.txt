@@ -1,0 +1,14 @@
+# Description of how I started Loki, Grafana, and Promtail:
+# I used the official Grafana/Loki docker-compose setup, running all three services 
+# (Loki, Promtail, and Grafana) locally.
+
+# 
+# Description of my Promtail configuration (loki-config.yaml):
+# - The 'scrape_configs' section targets the log file output 
+#   from the hello-app container or a local log directory.
+# - It uses the 'container' job to label logs with app=hello-app 
+#   for easy querying in Grafana/Loki.
+
+# Command used to view logs in Grafana/Loki (LQL query):
+# {app="hello-app"} | logfmt
+# (This query retrieves all logs labeled 'hello-app' which should contain the "Hello, DevOps World!" output).
